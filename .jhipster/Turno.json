@@ -1,0 +1,65 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "tratamiento",
+            "relationshipNameCapitalized": "Tratamiento",
+            "relationshipFieldName": "tratamiento",
+            "otherEntityName": "tratamiento",
+            "relationshipType": "one-to-one",
+            "otherEntityNameCapitalized": "Tratamiento",
+            "ownerSide": true
+        },
+        {
+            "relationshipId": 2,
+            "relationshipName": "atencion",
+            "relationshipNameCapitalized": "Atencion",
+            "relationshipFieldName": "atencion",
+            "otherEntityName": "atencion",
+            "relationshipType": "one-to-one",
+            "otherEntityNameCapitalized": "Atencion",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "fecha",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "Fecha",
+            "fieldNameUnderscored": "fecha",
+            "fieldInJavaBeanMethod": "Fecha",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "observacion",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Observacion",
+            "fieldNameUnderscored": "observacion",
+            "fieldInJavaBeanMethod": "Observacion",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "sobreturno",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Sobreturno",
+            "fieldNameUnderscored": "sobreturno",
+            "fieldInJavaBeanMethod": "Sobreturno",
+            "fieldValidate": false
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOwnerOneToOne": true,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": true,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": true,
+    "fieldsContainDate": false,
+    "changelogDate": "20150829172322",
+    "dto": "no",
+    "pagination": "no",
+    "validation": false
+}

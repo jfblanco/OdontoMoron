@@ -1,0 +1,102 @@
+
+<div>
+    <h2><span>Paciente</span> {{paciente.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span>NumeroAsociado</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{paciente.numeroAsociado}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Apellido</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{paciente.apellido}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Nombre</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{paciente.nombre}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>FechaNacimiento</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{paciente.fechaNacimiento}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Sexo</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{paciente.sexo}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Domicilio</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{paciente.domicilio}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Telefono</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{paciente.telefono}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Celular</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{paciente.celular}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Dni</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{paciente.dni}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>prepaga</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{paciente.prepaga.id}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="paciente"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

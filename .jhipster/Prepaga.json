@@ -1,0 +1,37 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "condicionFacturacion",
+            "relationshipNameCapitalized": "CondicionFacturacion",
+            "relationshipFieldName": "condicionFacturacion",
+            "otherEntityName": "condicionFacturacion",
+            "relationshipType": "many-to-one",
+            "otherEntityNameCapitalized": "CondicionFacturacion",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "numeroAfiliado",
+            "fieldType": "String",
+            "fieldNameCapitalized": "NumeroAfiliado",
+            "fieldNameUnderscored": "numero_afiliado",
+            "fieldInJavaBeanMethod": "NumeroAfiliado",
+            "fieldValidate": false
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOwnerOneToOne": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": false,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": false,
+    "fieldsContainDate": false,
+    "changelogDate": "20150829172517",
+    "dto": "no",
+    "pagination": "no",
+    "validation": false
+}

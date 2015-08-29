@@ -1,0 +1,55 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "obraSocial",
+            "relationshipNameCapitalized": "ObraSocial",
+            "relationshipFieldName": "obraSocial",
+            "otherEntityName": "obraSocial",
+            "relationshipType": "many-to-one",
+            "otherEntityNameCapitalized": "ObraSocial",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "descripcion",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Descripcion",
+            "fieldNameUnderscored": "descripcion",
+            "fieldInJavaBeanMethod": "Descripcion",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "codigo",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Codigo",
+            "fieldNameUnderscored": "codigo",
+            "fieldInJavaBeanMethod": "Codigo",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "precio",
+            "fieldType": "BigDecimal",
+            "fieldNameCapitalized": "Precio",
+            "fieldNameUnderscored": "precio",
+            "fieldInJavaBeanMethod": "Precio",
+            "fieldValidate": false
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOwnerOneToOne": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": false,
+    "fieldsContainBigDecimal": true,
+    "fieldsContainDateTime": false,
+    "fieldsContainDate": false,
+    "changelogDate": "20150829171757",
+    "dto": "no",
+    "pagination": "no",
+    "validation": false
+}

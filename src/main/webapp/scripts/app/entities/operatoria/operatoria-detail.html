@@ -1,0 +1,54 @@
+
+<div>
+    <h2><span>Operatoria</span> {{operatoria.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span>Descripcion</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{operatoria.descripcion}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Codigo</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{operatoria.codigo}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Precio</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{operatoria.precio}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>obraSocial</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{operatoria.obraSocial.id}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="operatoria"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

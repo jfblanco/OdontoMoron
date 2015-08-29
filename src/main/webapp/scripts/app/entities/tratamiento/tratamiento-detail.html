@@ -1,0 +1,70 @@
+
+<div>
+    <h2><span>Tratamiento</span> {{tratamiento.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span>Fecha</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{tratamiento.fecha}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Conformidad</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{tratamiento.conformidad}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Cara</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{tratamiento.cara}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Sector</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{tratamiento.sector}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Pieza</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{tratamiento.pieza}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>operatoria</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{tratamiento.operatoria.id}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="tratamiento"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

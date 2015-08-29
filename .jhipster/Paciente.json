@@ -1,0 +1,119 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "prepaga",
+            "relationshipNameCapitalized": "Prepaga",
+            "relationshipFieldName": "prepaga",
+            "otherEntityName": "prepaga",
+            "relationshipType": "many-to-one",
+            "otherEntityNameCapitalized": "Prepaga",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipId": 2,
+            "relationshipName": "turno",
+            "relationshipNameCapitalized": "Turno",
+            "relationshipFieldName": "turno",
+            "otherEntityName": "turno",
+            "relationshipType": "one-to-many",
+            "otherEntityNameCapitalized": "Turno",
+            "otherEntityRelationshipName": "paciente"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "numeroAsociado",
+            "fieldType": "String",
+            "fieldNameCapitalized": "NumeroAsociado",
+            "fieldNameUnderscored": "numero_asociado",
+            "fieldInJavaBeanMethod": "NumeroAsociado",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "apellido",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Apellido",
+            "fieldNameUnderscored": "apellido",
+            "fieldInJavaBeanMethod": "Apellido",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Nombre",
+            "fieldNameUnderscored": "nombre",
+            "fieldInJavaBeanMethod": "Nombre",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "fechaNacimiento",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "FechaNacimiento",
+            "fieldNameUnderscored": "fecha_nacimiento",
+            "fieldInJavaBeanMethod": "FechaNacimiento",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "sexo",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Sexo",
+            "fieldNameUnderscored": "sexo",
+            "fieldInJavaBeanMethod": "Sexo",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "domicilio",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Domicilio",
+            "fieldNameUnderscored": "domicilio",
+            "fieldInJavaBeanMethod": "Domicilio",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "telefono",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Telefono",
+            "fieldNameUnderscored": "telefono",
+            "fieldInJavaBeanMethod": "Telefono",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 8,
+            "fieldName": "celular",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Celular",
+            "fieldNameUnderscored": "celular",
+            "fieldInJavaBeanMethod": "Celular",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 9,
+            "fieldName": "dni",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Dni",
+            "fieldNameUnderscored": "dni",
+            "fieldInJavaBeanMethod": "Dni",
+            "fieldValidate": false
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOwnerOneToOne": false,
+    "fieldsContainOneToMany": true,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": true,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": true,
+    "fieldsContainDate": false,
+    "changelogDate": "20150829172810",
+    "dto": "no",
+    "pagination": "no",
+    "validation": false
+}

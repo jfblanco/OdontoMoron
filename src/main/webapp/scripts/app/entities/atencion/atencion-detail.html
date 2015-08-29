@@ -1,0 +1,46 @@
+
+<div>
+    <h2><span>Atencion</span> {{atencion.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span>Ingreso</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{atencion.ingreso}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Egreso</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{atencion.egreso}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>odontologo</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{atencion.odontologo.id}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="atencion"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

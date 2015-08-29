@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150829171532_added_entity_ObraSocial.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150829171757_added_entity_Operatoria.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150829171831_added_entity_Odontologo.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150829171958_added_entity_Atencion.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150829172145_added_entity_Tratamiento.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150829172322_added_entity_Turno.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150829172356_added_entity_CondicionFacturacion.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150829172517_added_entity_Prepaga.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150829172810_added_entity_Paciente.xml" relativeToChangelogFile="false"/>
+    <!-- JHipster will add liquibase changelogs here -->
+</databaseChangeLog>

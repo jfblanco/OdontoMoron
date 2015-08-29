@@ -1,0 +1,46 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "odontologo",
+            "relationshipNameCapitalized": "Odontologo",
+            "relationshipFieldName": "odontologo",
+            "otherEntityName": "odontologo",
+            "relationshipType": "many-to-one",
+            "otherEntityNameCapitalized": "Odontologo",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "ingreso",
+            "fieldType": "BigDecimal",
+            "fieldNameCapitalized": "Ingreso",
+            "fieldNameUnderscored": "ingreso",
+            "fieldInJavaBeanMethod": "Ingreso",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "egreso",
+            "fieldType": "BigDecimal",
+            "fieldNameCapitalized": "Egreso",
+            "fieldNameUnderscored": "egreso",
+            "fieldInJavaBeanMethod": "Egreso",
+            "fieldValidate": false
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOwnerOneToOne": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": false,
+    "fieldsContainBigDecimal": true,
+    "fieldsContainDateTime": false,
+    "fieldsContainDate": false,
+    "changelogDate": "20150829171958",
+    "dto": "no",
+    "pagination": "no",
+    "validation": false
+}

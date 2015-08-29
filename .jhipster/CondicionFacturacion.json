@@ -1,0 +1,26 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "descripcion",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Descripcion",
+            "fieldNameUnderscored": "descripcion",
+            "fieldInJavaBeanMethod": "Descripcion",
+            "fieldValidate": false
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOwnerOneToOne": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": false,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": false,
+    "fieldsContainDate": false,
+    "changelogDate": "20150829172356",
+    "dto": "no",
+    "pagination": "no",
+    "validation": false
+}

@@ -1,0 +1,73 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "operatoria",
+            "relationshipNameCapitalized": "Operatoria",
+            "relationshipFieldName": "operatoria",
+            "otherEntityName": "operatoria",
+            "relationshipType": "many-to-one",
+            "otherEntityNameCapitalized": "Operatoria",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "fecha",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "Fecha",
+            "fieldNameUnderscored": "fecha",
+            "fieldInJavaBeanMethod": "Fecha",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "conformidad",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Conformidad",
+            "fieldNameUnderscored": "conformidad",
+            "fieldInJavaBeanMethod": "Conformidad",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "cara",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Cara",
+            "fieldNameUnderscored": "cara",
+            "fieldInJavaBeanMethod": "Cara",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "sector",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Sector",
+            "fieldNameUnderscored": "sector",
+            "fieldInJavaBeanMethod": "Sector",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "pieza",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Pieza",
+            "fieldNameUnderscored": "pieza",
+            "fieldInJavaBeanMethod": "Pieza",
+            "fieldValidate": false
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOwnerOneToOne": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": true,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": true,
+    "fieldsContainDate": false,
+    "changelogDate": "20150829172145",
+    "dto": "no",
+    "pagination": "no",
+    "validation": false
+}

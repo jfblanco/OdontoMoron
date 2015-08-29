@@ -1,0 +1,129 @@
+<div>
+
+    <h2>Turnos</h2>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#saveTurnoModal" ng-click="clear()">
+                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new Turno</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="saveTurnoModal" tabindex="-1" role="dialog" aria-labelledby="myTurnoLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="editForm" role="form" novalidate ng-submit="save()">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myTurnoLabel">Create or edit a Turno</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="turno.id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Fecha</label>
+                            <input type="datetime-local" class="form-control" name="fecha"
+                                   ng-model="turno.fecha" ng-model-options="{timezone: 'UTC'}">
+
+                        </div>
+                        <div class="form-group">
+                            <label>Observacion</label>
+                            <input type="text" class="form-control" name="observacion"
+                                   ng-model="turno.observacion">
+
+                        </div>
+                        <div class="form-group">
+                            <label>Sobreturno</label>
+                            <input type="checkbox" class="form-control" name="sobreturno"
+                                   ng-model="turno.sobreturno">
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="editForm.$invalid" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteTurnoConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="deleteForm" ng-submit="confirmDelete(turno.id)">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title">Confirm delete operation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete this Turno?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="deleteForm.$invalid" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span>Delete</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Fecha</th>
+                    <th>Observacion</th>
+                    <th>Sobreturno</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="turno in turnos">
+                    <td><a ui-sref="turnoDetail({id:turno.id})">{{turno.id}}</a></td>
+                    <td>{{turno.fecha}}</td>
+                    <td>{{turno.observacion}}</td>
+                    <td>{{turno.sobreturno}}</td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="turnoDetail({id:turno.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="showUpdate(turno.id)"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(turno.id)"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

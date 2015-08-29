@@ -1,0 +1,38 @@
+
+<div>
+    <h2><span>Odontologo</span> {{odontologo.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span>Nombre</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{odontologo.nombre}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Apellido</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{odontologo.apellido}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="odontologo"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>
