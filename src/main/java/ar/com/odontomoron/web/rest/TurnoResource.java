@@ -2,6 +2,7 @@ package ar.com.odontomoron.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import ar.com.odontomoron.domain.Turno;
+import ar.com.odontomoron.repository.PacienteRepository;
 import ar.com.odontomoron.repository.TurnoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +28,9 @@ public class TurnoResource {
 
     @Inject
     private TurnoRepository turnoRepository;
+    
+    @Inject
+    private PacienteRepository pacienteRepository;
 
     /**
      * POST  /turnos -> Create a new turno.
@@ -40,6 +44,7 @@ public class TurnoResource {
         if (turno.getId() != null) {
             return ResponseEntity.badRequest().header("Failure", "A new turno cannot already have an ID").build();
         }
+        turno.setPaciente(pacienteRepository.findOne(turno.getPaciente().getId()));
         turnoRepository.save(turno);
         return ResponseEntity.created(new URI("/api/turnos/" + turno.getId())).build();
     }

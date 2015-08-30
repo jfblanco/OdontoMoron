@@ -87,6 +87,22 @@ public class PacienteResource {
                 HttpStatus.OK))
             .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+    
+    /**
+     * GET  /pacientes/:id -> get the "id" paciente.
+     */
+    @RequestMapping(value = "/pacientesnumerosocio/{numeroAsociado}",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<Paciente> getPorNumeroAsociado(@PathVariable String numeroAsociado) {
+        log.debug("REST request to get Paciente : {}", numeroAsociado);
+        return Optional.ofNullable(pacienteRepository.findByNumeroAsociado(numeroAsociado))
+            .map(paciente -> new ResponseEntity<>(
+                paciente,
+                HttpStatus.OK))
+            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
 
     /**
      * DELETE  /pacientes/:id -> delete the "id" paciente.
