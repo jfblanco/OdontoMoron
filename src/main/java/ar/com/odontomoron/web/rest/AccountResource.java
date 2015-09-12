@@ -3,6 +3,7 @@ package ar.com.odontomoron.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import ar.com.odontomoron.domain.Authority;
 import ar.com.odontomoron.domain.User;
+import ar.com.odontomoron.repository.AuthorityRepository;
 import ar.com.odontomoron.repository.UserRepository;
 import ar.com.odontomoron.security.SecurityUtils;
 import ar.com.odontomoron.service.MailService;
@@ -41,6 +42,9 @@ public class AccountResource {
 
     @Inject
     private MailService mailService;
+    
+    @Inject
+    private AuthorityRepository authorityRepository;
 
     /**
      * POST  /register -> register the user.
@@ -57,13 +61,13 @@ public class AccountResource {
                 .orElseGet(() -> {
                     User user = userService.createUserInformation(userDTO.getLogin(), userDTO.getPassword(),
                     userDTO.getFirstName(), userDTO.getLastName(), userDTO.getEmail().toLowerCase(),
-                    userDTO.getLangKey());
+                    userDTO.getLangKey(), userDTO.getRoles().get(0));
                     String baseUrl = request.getScheme() + // "http"
                     "://" +                                // "://"
                     request.getServerName() +              // "myhost"
                     ":" +                                  // ":"
                     request.getServerPort();               // "80"
-
+                    
                     mailService.sendActivationEmail(user, baseUrl);
                     return new ResponseEntity<>(HttpStatus.CREATED);
                 })

@@ -82,10 +82,12 @@ public class UserService {
     }
 
     public User createUserInformation(String login, String password, String firstName, String lastName, String email,
-                                      String langKey) {
+                                      String langKey, String role) {
 
         User newUser = new User();
-        Authority authority = authorityRepository.findOne("ROLE_USER");
+        Authority authority = authorityRepository.findOne("ROLE_ADMINISTRADOR");
+        if(role.equals("ROLE_ODONTOLOGO"))
+            authority = authorityRepository.findOne("ROLE_ODONTOLOGO");
         Set<Authority> authorities = new HashSet<>();
         String encryptedPassword = passwordEncoder.encode(password);
         newUser.setLogin(login);
@@ -96,7 +98,7 @@ public class UserService {
         newUser.setEmail(email);
         newUser.setLangKey(langKey);
         // new user is not active
-        newUser.setActivated(false);
+        newUser.setActivated(true);
         // new user gets registration key
         newUser.setActivationKey(RandomUtil.generateActivationKey());
         authorities.add(authority);

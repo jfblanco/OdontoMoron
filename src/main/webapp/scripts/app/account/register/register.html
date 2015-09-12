@@ -110,6 +110,17 @@
                         </p>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label>Role</label><br/>
+                    <label>
+                    <input type="radio" ng-click="cambiarRole()" ng-model="userRole" value="ROLE_RECEPTIONISTA" required>
+                    Recepcionista
+                    </label><br/>
+                    <label>
+                    <input type="radio" ng-click="cambiarRole()" ng-model="userRole" value="ROLE_ODONTOLOGO" required>
+                    Odontologo
+                    <label><br/>
+                </div>
 
                 <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Register</button>
             </form>

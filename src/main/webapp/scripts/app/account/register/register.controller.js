@@ -14,6 +14,8 @@ angular.module('odontomoronApp')
                 $scope.doNotMatch = 'ERROR';
             } else {
                 $scope.registerAccount.langKey =  'en' ;
+                $scope.registerAccount.roles = [];
+                $scope.registerAccount.roles.push($scope.userRole);
                 $scope.doNotMatch = null;
                 $scope.error = null;
                 $scope.errorUserExists = null;
@@ -33,4 +35,10 @@ angular.module('odontomoronApp')
                 });
             }
         };
+        
+        $scope.cambiarRole = function()
+        {
+            $scope.roles = [];
+            $scope.roles.push($scope.userRole);
+        }
     });
