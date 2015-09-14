@@ -17,6 +17,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findOneByActivationKey(String activationKey);
 
     List<User> findAllByActivatedIsFalseAndCreatedDateBefore(DateTime dateTime);
+    
+    @Query("from ar.com.odontomoron.domain.User user inner join user.authorities a where a.name = 'ROLE_ODONTOLOGO'")
+    List<User> findAllOdontologos();
 
     Optional<User> findOneByResetKey(String resetKey);
 

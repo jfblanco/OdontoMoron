@@ -40,6 +40,18 @@ public class UserResource {
         log.debug("REST request to get all Users");
         return userRepository.findAll();
     }
+    
+    /**
+     * GET  /odontologos -> get all odontologos.
+     */
+    @RequestMapping(value = "/users/odontologos",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public List<User> getAllOdontologos() {
+        log.debug("REST request to get all Users");
+        return userRepository.findAllOdontologos();
+    }
 
     /**
      * GET  /users/:login -> get the "login" user.

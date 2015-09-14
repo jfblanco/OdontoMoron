@@ -48,6 +48,9 @@ public class Turno implements Serializable {
     
     @ManyToOne
     private Paciente paciente;
+    
+    @ManyToOne
+    private User odontologo;
 
     public Long getId() {
         return id;
@@ -63,6 +66,14 @@ public class Turno implements Serializable {
 
     public void setFecha(DateTime fecha) {
         this.fecha = fecha;
+    }
+
+    public User getOdontologo() {
+        return odontologo;
+    }
+
+    public void setOdontologo(User odontologo) {
+        this.odontologo = odontologo;
     }
 
     public String getObservacion() {

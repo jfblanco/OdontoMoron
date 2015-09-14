@@ -24,6 +24,7 @@
             <column name="tratamiento_id" type="bigint"/>
             <column name="atencion_id" type="bigint"/>
             <column name="paciente_id" type="bigint"/>
+            <column name="odontologo_id" type="bigint"/>
         </createTable>
         <dropDefaultValue tableName="TURNO" columnName="fecha" columnDataType="datetime"/>
 
@@ -39,6 +40,12 @@
                                  constraintName="fk_turno_atencion_id"
                                  referencedColumnNames="id"
                                  referencedTableName="ATENCION"/>
+        
+        <addForeignKeyConstraint baseColumnNames="odontologo_id"
+                                 baseTableName="TURNO"
+                                 constraintName="fk_turno_odontologo_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="JHI_USER"/>
 
     </changeSet>
 </databaseChangeLog>
