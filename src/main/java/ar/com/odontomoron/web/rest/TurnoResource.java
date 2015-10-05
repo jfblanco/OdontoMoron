@@ -19,6 +19,9 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
 import org.joda.time.DateTime;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 
 /**
  * REST controller for managing Turno.
@@ -109,7 +112,11 @@ public class TurnoResource {
     public ResponseEntity<List<Turno>> getPorOdontologo(@PathVariable Long id) {
         User odontologo = userRepository.findOne(id);
         log.debug("REST getting Pacientes for the Odontologo : {}", odontologo);
-        return Optional.ofNullable(turnoRepository.findByFechaAndOdontologo(new DateTime(),odontologo.getId()))
+        DateTime dateNow = new DateTime();
+        DateTime from = dateNow.minusHours(dateNow.getHourOfDay());
+        DateTime to = dateNow.plusHours(24 - dateNow.getHourOfDay());
+        PageRequest pageRequest = new PageRequest(0,20,new Sort(Sort.Direction.ASC, "fecha"));
+        return Optional.ofNullable(turnoRepository.findTurnosParaOdontologo(from,to,odontologo.getId(), pageRequest))
             .map(turno -> new ResponseEntity<>(
                 turno,
                 HttpStatus.OK))
