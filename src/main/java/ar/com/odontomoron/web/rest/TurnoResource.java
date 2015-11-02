@@ -6,6 +6,7 @@ import ar.com.odontomoron.domain.User;
 import ar.com.odontomoron.repository.PacienteRepository;
 import ar.com.odontomoron.repository.TurnoRepository;
 import ar.com.odontomoron.repository.UserRepository;
+import ar.com.odontomoron.service.TurnoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -21,7 +22,6 @@ import java.util.Optional;
 import org.joda.time.DateTime;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 
 /**
  * REST controller for managing Turno.
@@ -34,6 +34,9 @@ public class TurnoResource {
 
     @Inject
     private TurnoRepository turnoRepository;
+    
+    @Inject
+    private TurnoService turnoService;
     
     @Inject
     private PacienteRepository pacienteRepository;
@@ -116,7 +119,7 @@ public class TurnoResource {
         DateTime from = dateNow.minusHours(dateNow.getHourOfDay());
         DateTime to = dateNow.plusHours(24 - dateNow.getHourOfDay());
         PageRequest pageRequest = new PageRequest(0,20,new Sort(Sort.Direction.ASC, "fecha"));
-        return Optional.ofNullable(turnoRepository.findTurnosParaOdontologo(from,to,odontologo.getId(), pageRequest))
+        return Optional.ofNullable(turnoService.turnoPorPaciente(from,to,odontologo.getId(), pageRequest))
             .map(turno -> new ResponseEntity<>(
                 turno,
                 HttpStatus.OK))

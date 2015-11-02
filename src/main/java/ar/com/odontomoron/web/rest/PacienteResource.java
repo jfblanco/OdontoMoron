@@ -15,6 +15,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
+import org.joda.time.DateTime;
 
 /**
  * REST controller for managing Paciente.
@@ -40,8 +41,31 @@ public class PacienteResource {
         if (paciente.getId() != null) {
             return ResponseEntity.badRequest().header("Failure", "A new paciente cannot already have an ID").build();
         }
-        pacienteRepository.save(paciente);
-        return ResponseEntity.created(new URI("/api/pacientes/" + paciente.getId())).build();
+        StringBuffer numeroAsociado = new StringBuffer("00000");
+        DateTime hoy = DateTime.now();
+        if(String.valueOf(hoy.getDayOfMonth()).length() == 1)
+            numeroAsociado.replace(1,1,String.valueOf(hoy.getDayOfMonth()));
+        else
+            numeroAsociado.replace(0,1,String.valueOf(hoy.getDayOfMonth()));
+        if(String.valueOf(hoy.getMonthOfYear()).length() == 1)
+            numeroAsociado.replace(3,3,String.valueOf(hoy.getMonthOfYear()));
+        else
+            numeroAsociado.replace(2,3,String.valueOf(hoy.getMonthOfYear()));
+        numeroAsociado.replace(4,7,String.valueOf(hoy.getYear()));
+        
+        Integer cantidadDePacientesRegistradorHoy = pacienteRepository.findCountPacientes(numeroAsociado.toString());
+        numeroAsociado.append(cantidadDePacientesRegistradorHoy);
+        paciente.setNumeroAsociado(numeroAsociado.toString());
+        Paciente pacienteDB = pacienteRepository.findByNumeroAsociado(paciente.getNumeroAsociado());
+        if(pacienteDB != null && pacienteDB.getNumeroAsociado().equals(paciente.getNumeroAsociado()))
+        {
+            return new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);
+        }
+        else
+        {
+            pacienteRepository.save(paciente);
+            return ResponseEntity.created(new URI("/api/pacientes/" + paciente.getId())).build();
+        }        
     }
 
     /**

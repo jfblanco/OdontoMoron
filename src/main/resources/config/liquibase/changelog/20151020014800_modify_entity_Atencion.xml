@@ -13,23 +13,23 @@
     <!--
         Added the entity Atencion.
     -->
-    <changeSet id="20150829171958" author="jhipster">
-        <createTable tableName="ATENCION">
-            <column name="id" type="bigint" autoIncrement="${autoIncrement}" >
-                <constraints primaryKey="true" nullable="false"/>
-            </column>
-            <column name="ingreso" type="decimal(10,2)"/>
-            <column name="egreso" type="decimal(10,2)"/>
-            <column name="fecha" type="timestamp"/>
-            <column name="odontologo_id" type="bigint"/>
-            <column name="paciente_id" type="bigint"/>
-            <column name="tratamiento_id" type="bigint"/>
-        </createTable>
+    <changeSet id="20151020014800" author="jhipster">
+        <addColumn tableName="ATENCION">
+            <column name="turno_id" type="bigint"/>
+        </addColumn>
+        
+        <dropForeignKeyConstraint baseTableName="ATENCION" constraintName="fk_atencion_odontologo_id"></dropForeignKeyConstraint>
         
         <addForeignKeyConstraint baseColumnNames="odontologo_id"
                                  baseTableName="ATENCION"
                                  constraintName="fk_atencion_odontologo_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="ODONTOLOGO"/>
+                                 referencedTableName="JHI_USER"/>
+        
+        <addForeignKeyConstraint baseColumnNames="turno_id"
+                                 baseTableName="ATENCION"
+                                 constraintName="fk_atencion_turno_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="TURNO"/>
     </changeSet>
 </databaseChangeLog>

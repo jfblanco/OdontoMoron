@@ -27,20 +27,26 @@
             <column name="telefono" type="varchar(255)"/>
             <column name="celular" type="varchar(255)"/>
             <column name="dni" type="varchar(255)"/>
-            <column name="prepaga_id" type="bigint"/>
+            <column name="obraSocial_id" type="bigint"/>
         </createTable>
         <dropDefaultValue tableName="PACIENTE" columnName="fecha_nacimiento" columnDataType="datetime"/>
 
         
-        <addForeignKeyConstraint baseColumnNames="prepaga_id"
+        <addForeignKeyConstraint baseColumnNames="obraSocial_id"
                                  baseTableName="PACIENTE"
-                                 constraintName="fk_paciente_prepaga_id"
+                                 constraintName="fk_paciente_obrasocial_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="PREPAGA"/>
+                                 referencedTableName="OBRASOCIAL"/>
         
         <addForeignKeyConstraint baseColumnNames="paciente_id"
                                  baseTableName="TURNO"
                                  constraintName="fk_paciente_turno_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="PACIENTE"/>
+        
+        <addForeignKeyConstraint baseColumnNames="paciente_id"
+                                 baseTableName="ATENCION"
+                                 constraintName="fk_atencion_paciente_id"
                                  referencedColumnNames="id"
                                  referencedTableName="PACIENTE"/>
 

@@ -57,9 +57,30 @@ public class Paciente implements Serializable {
 
     @Column(name = "dni")
     private String dni;
+    
+    @Column(name = "numero_de_afiliado")
+    private String numeroDeAfiliado;
+    
+    @Column(name = "lugar_de_trabajo")
+    private String lugarDeTrabajo;
+    
+    @Column(name = "parentezco_con_el_asociado")
+    private String parentezcoConElAsociado;
+    
+    @Column(name = "condicion_de_facturacion")
+    private String condicionDeFacturacion;
+    
+    @Column(name = "plan")
+    private String plan;
+    
+    @Column(name = "correo_electronico")
+    private String correoElectronico;
+    
+    @Column(name = "codigo_postal")
+    private String codigoPostal;
 
     @ManyToOne
-    private Prepaga prepaga;
+    private ObraSocial obraSocial;
 
     @OneToMany(mappedBy = "paciente")
     @JsonIgnore
@@ -146,13 +167,13 @@ public class Paciente implements Serializable {
         this.dni = dni;
     }
 
-    public Prepaga getPrepaga() {
-        return prepaga;
+    public ObraSocial getObraSocial() {
+        return obraSocial;
     }
 
-    public void setPrepaga(Prepaga prepaga) {
-        this.prepaga = prepaga;
-    }
+    public void setObraSocial(ObraSocial obraSocial) {
+        this.obraSocial = obraSocial;
+    }    
 
     public Set<Turno> getTurnos() {
         return turnos;
@@ -160,6 +181,62 @@ public class Paciente implements Serializable {
 
     public void setTurnos(Set<Turno> turnos) {
         this.turnos = turnos;
+    }
+
+    public String getNumeroDeAfiliado() {
+        return numeroDeAfiliado;
+    }
+
+    public void setNumeroDeAfiliado(String numeroDeAfiliado) {
+        this.numeroDeAfiliado = numeroDeAfiliado;
+    }
+
+    public String getLugarDeTrabajo() {
+        return lugarDeTrabajo;
+    }
+
+    public void setLugarDeTrabajo(String lugarDeTrabajo) {
+        this.lugarDeTrabajo = lugarDeTrabajo;
+    }
+
+    public String getParentezcoConElAsociado() {
+        return parentezcoConElAsociado;
+    }
+
+    public void setParentezcoConElAsociado(String parentezcoConElAsociado) {
+        this.parentezcoConElAsociado = parentezcoConElAsociado;
+    }
+
+    public String getCondicionDeFacturacion() {
+        return condicionDeFacturacion;
+    }
+
+    public void setCondicionDeFacturacion(String condicionDeFacturacion) {
+        this.condicionDeFacturacion = condicionDeFacturacion;
+    }
+
+    public String getPlan() {
+        return plan;
+    }
+
+    public void setPlan(String plan) {
+        this.plan = plan;
+    }
+
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
+
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
+    }
+
+    public String getCodigoPostal() {
+        return codigoPostal;
+    }
+
+    public void setCodigoPostal(String codigoPostal) {
+        this.codigoPostal = codigoPostal;
     }
 
     @Override

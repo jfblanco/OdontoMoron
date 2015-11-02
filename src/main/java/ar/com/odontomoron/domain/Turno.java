@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import ar.com.odontomoron.domain.util.CustomDateTimeDeserializer;
 import ar.com.odontomoron.domain.util.CustomDateTimeSerializer;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Type;
@@ -41,6 +42,7 @@ public class Turno implements Serializable {
     private Tratamiento tratamiento;
 
     @OneToOne
+    @JsonIgnore
     private Atencion atencion;
     
     @ManyToOne
@@ -48,6 +50,10 @@ public class Turno implements Serializable {
     
     @ManyToOne
     private User odontologo;
+    
+    @Transient
+    @JsonSerialize
+    private Boolean finalizada;
 
     public Long getId() {
         return id;
@@ -111,6 +117,14 @@ public class Turno implements Serializable {
 
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
+    }
+
+    public Boolean getFinalizada() {
+        return finalizada;
+    }
+
+    public void setFinalizada(Boolean finalizada) {
+        this.finalizada = finalizada;
     }
 
     @Override

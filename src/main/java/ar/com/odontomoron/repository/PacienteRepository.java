@@ -10,5 +10,7 @@ import org.springframework.data.jpa.repository.*;
 public interface PacienteRepository extends JpaRepository<Paciente,Long> {
     
     public Paciente findByNumeroAsociado(String numeroAsociado);
-
+    
+    @Query("select count(*) from ar.com.odontomoron.domain.Paciente where numeroAsociado like ?1%")
+    public Integer findCountPacientes(String fecha);
 }

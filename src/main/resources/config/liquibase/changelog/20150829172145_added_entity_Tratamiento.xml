@@ -33,6 +33,12 @@
                                  constraintName="fk_tratamiento_operatoria_id"
                                  referencedColumnNames="id"
                                  referencedTableName="OPERATORIA"/>
+        
+        <addForeignKeyConstraint baseColumnNames="tratamiento_id"
+                                 baseTableName="ATENCION"
+                                 constraintName="fk_atencion_tratamiento_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="TRATAMIENTO"/>
 
     </changeSet>
 </databaseChangeLog>

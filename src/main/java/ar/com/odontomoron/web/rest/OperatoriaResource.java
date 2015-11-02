@@ -2,7 +2,9 @@ package ar.com.odontomoron.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import ar.com.odontomoron.domain.Operatoria;
+import ar.com.odontomoron.domain.Paciente;
 import ar.com.odontomoron.repository.OperatoriaRepository;
+import ar.com.odontomoron.repository.PacienteRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -27,6 +29,9 @@ public class OperatoriaResource {
 
     @Inject
     private OperatoriaRepository operatoriaRepository;
+    
+    @Inject
+    private PacienteRepository pacienteRepository;
 
     /**
      * POST  /operatorias -> Create a new operatoria.
@@ -82,6 +87,23 @@ public class OperatoriaResource {
     public ResponseEntity<Operatoria> get(@PathVariable Long id) {
         log.debug("REST request to get Operatoria : {}", id);
         return Optional.ofNullable(operatoriaRepository.findOne(id))
+            .map(operatoria -> new ResponseEntity<>(
+                operatoria,
+                HttpStatus.OK))
+            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+    
+    /**
+     * GET  /operatorias/:id -> get the "id" operatoria.
+     */
+    @RequestMapping(value = "/operatorias/operatoriasporusuario/{id}",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<Operatoria>> getPorUsuario(@PathVariable Long id) {
+        log.debug("REST request to get Operatorias Para el usuario: {}", id);
+        Paciente paciente = pacienteRepository.findOne(id);
+        return Optional.ofNullable(operatoriaRepository.findByObraSocial(paciente.getObraSocial().getId()))
             .map(operatoria -> new ResponseEntity<>(
                 operatoria,
                 HttpStatus.OK))

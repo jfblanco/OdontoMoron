@@ -14,5 +14,8 @@
     <include file="classpath:config/liquibase/changelog/20150829172356_added_entity_CondicionFacturacion.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20150829172517_added_entity_Prepaga.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20150829172810_added_entity_Paciente.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20151020013200_modify_entity_Operatoria.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20151020014800_modify_entity_Atencion.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20151101205000_modify_entity_Paciente.xml" relativeToChangelogFile="false"/>
     <!-- JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

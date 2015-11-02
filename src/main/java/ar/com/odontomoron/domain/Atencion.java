@@ -1,15 +1,18 @@
 package ar.com.odontomoron.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import ar.com.odontomoron.domain.util.CustomDateTimeDeserializer;
+import ar.com.odontomoron.domain.util.CustomDateTimeSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
+import org.hibernate.annotations.Type;
+import org.joda.time.DateTime;
 
 /**
  * A Atencion.
@@ -28,9 +31,24 @@ public class Atencion implements Serializable {
 
     @Column(name = "egreso", precision=10, scale=2)
     private BigDecimal egreso;
-
+    
+    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
+    @Column(name = "fecha")
+    private DateTime fecha;
+    
     @ManyToOne
-    private Odontologo odontologo;
+    private Tratamiento tratamiento;
+    
+    @ManyToOne
+    private User odontologo;
+    
+    @ManyToOne
+    private Paciente paciente;
+    
+    @OneToOne
+    private Turno turno;
 
     public Long getId() {
         return id;
@@ -40,6 +58,22 @@ public class Atencion implements Serializable {
         this.id = id;
     }
 
+    public DateTime getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(DateTime fecha) {
+        this.fecha = fecha;
+    }
+
+    public Tratamiento getTratamiento() {
+        return tratamiento;
+    }
+
+    public void setTratamiento(Tratamiento tratamiento) {
+        this.tratamiento = tratamiento;
+    }
+    
     public BigDecimal getIngreso() {
         return ingreso;
     }
@@ -56,12 +90,28 @@ public class Atencion implements Serializable {
         this.egreso = egreso;
     }
 
-    public Odontologo getOdontologo() {
+    public User getOdontologo() {
         return odontologo;
     }
 
-    public void setOdontologo(Odontologo odontologo) {
+    public void setOdontologo(User odontologo) {
         this.odontologo = odontologo;
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
+
+    public Turno getTurno() {
+        return turno;
+    }
+
+    public void setTurno(Turno turno) {
+        this.turno = turno;
     }
 
     @Override

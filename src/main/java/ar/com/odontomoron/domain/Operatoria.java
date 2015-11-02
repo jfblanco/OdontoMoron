@@ -1,14 +1,11 @@
 package ar.com.odontomoron.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -31,6 +28,9 @@ public class Operatoria implements Serializable {
 
     @Column(name = "precio", precision=10, scale=2)
     private BigDecimal precio;
+    
+    @Column(name = "egreso", precision=10, scale=2)
+    private BigDecimal egreso;
 
     @ManyToOne
     private ObraSocial obraSocial;
@@ -73,6 +73,14 @@ public class Operatoria implements Serializable {
 
     public void setObraSocial(ObraSocial obraSocial) {
         this.obraSocial = obraSocial;
+    }
+
+    public BigDecimal getEgreso() {
+        return egreso;
+    }
+
+    public void setEgreso(BigDecimal egreso) {
+        this.egreso = egreso;
     }
 
     @Override
